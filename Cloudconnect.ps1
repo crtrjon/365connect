@@ -19,13 +19,16 @@ $credential = Get-Credential
 Install-Module -Name AzureAD
 Install-Module -Name MSOnline
 Install-Module -Name MicrosoftTeams
+Install-Module -Name ExchangeOnlineManagement
 
 Import-Module MSOnline -Force
 Import-Module AzureAD -Force
 Import-Module MicrosoftTeams -Force
+Import-Module ExchangeOnlineManagement -Force
 
+Connect-ExchangeOnline -Credential $credential
 Connect-MsolService -Credential $credential
-Connect-AzureAD -Credential $credenital
+Connect-AzureAD -Credential $credential
 Connect-MicrosoftTeams -Credential $credential
 Connect-MsolService -Credential $credential
 
